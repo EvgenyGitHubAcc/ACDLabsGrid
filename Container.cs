@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ACDGridSharp
 {
@@ -34,19 +35,44 @@ namespace ACDGridSharp
         }
         public void sortLines()
         {
-            fileLineList.Sort(new FileLineByValuesComparer());
+            if (checkEqLineLength())
+            {
+                fileLineList.Sort(new FileLineByValuesComparer());
+            }
+            else
+            {
+                MessageBox.Show("The lines length differs. Sort aborted.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
         }
         public int getColCount()
         {
             int count = 0;
             foreach (FileLine el in fileLineList)
             {
-                if(count < el.ElemList.Count)
+                if (count < el.ElemList.Count)
                 {
                     count = el.ElemList.Count;
                 }
             }
             return count;
+        }
+        private bool checkEqLineLength()
+        {
+            for (int i = 0; i < fileLineList.Count - 1; ++i)
+            {
+                if (fileLineList[i].ElemList.Count == fileLineList[i + 1].ElemList.Count)
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
