@@ -20,17 +20,24 @@ namespace ACDGridSharp
 
         private void savFileBtn_Click(object sender, EventArgs e)
         {
-
+            //SaveFileDialog saveFileDial = new SaveFileDialog();
+            //if (saveFileDial.ShowDialog() == DialogResult.Cancel)
+            //{
+            //    return;
+            //}
+            //cont.saveFile(saveFileDial.FileName);
+            cont.saveFile(@"D:\Temp\Prog\ACDGridC#\out.txt");
         }
 
         private void opnFileBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDial = new OpenFileDialog();
-            if (openFileDial.ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
-            cont.parceText(openFileDial.FileName);
+            //OpenFileDialog openFileDial = new OpenFileDialog();
+            //if (openFileDial.ShowDialog() == DialogResult.Cancel)
+            //{
+            //    return;
+            //}
+            //cont.loadFile(openFileDial.FileName);
+            cont.loadFile(@"D:\Temp\Prog\ACDGridC#\test.txt");
             cont.sortLines();
         }
     }

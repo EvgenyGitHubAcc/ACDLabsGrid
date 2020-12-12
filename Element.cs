@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,9 @@ namespace ACDGridSharp
             }
             try
             {
-                this.elem = float.Parse(elemStr);
+                CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+                culture.NumberFormat.NumberDecimalSeparator = ".";
+                this.elem = float.Parse(elemStr, culture);
                 this.type = TypeEnum.Float;
                 return;
             }
