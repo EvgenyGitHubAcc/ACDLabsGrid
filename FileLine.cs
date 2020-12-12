@@ -38,32 +38,37 @@ namespace ACDGridSharp
             }
             else
             {
-                if(index == objLeft.ElemList.Capacity)
+                if (index == objLeft.ElemList.Capacity)
                 {
                     return false;
                 }
                 return recCompFileLinesLess(objLeft, objRight, index + 1);
             }
         }
-        public static bool operator< (FileLine objLeft, FileLine objRight)
+        public static bool operator <(FileLine objLeft, FileLine objRight)
         {
             return recCompFileLinesLess(objLeft, objRight, 0);
         }
-        public static bool operator> (FileLine objLeft, FileLine objRight)
+        public static bool operator >(FileLine objLeft, FileLine objRight)
         {
             return !recCompFileLinesLess(objLeft, objRight, 0);
         }
-        public static bool operator== (FileLine objLeft, FileLine objRight)
+        public static bool operator ==(FileLine objLeft, FileLine objRight)
         {
             return string.Compare(objLeft.FileLineStr, objRight.FileLineStr) == 0;
         }
-        public static bool operator!= (FileLine objLeft, FileLine objRight)
+        public static bool operator !=(FileLine objLeft, FileLine objRight)
         {
             return string.Compare(objLeft.FileLineStr, objRight.FileLineStr) != 0;
         }
-    }
+        public string[] getStrArr()
+        {
+            string[] strArr = Array.ConvertAll<Element, string>(this.elemList.ToArray(), Element.ConvertToString);
+            return strArr;
+        }
 
-    class FileLineComparer : IComparer<FileLine>
+    }
+    class FileLineByValuesComparer : IComparer<FileLine>
     {
         public int Compare(FileLine objLeft, FileLine objRight)
         {

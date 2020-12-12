@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.opnFileBtn = new System.Windows.Forms.Button();
             this.savFileBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -38,30 +36,21 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.Location = new System.Drawing.Point(2, 1);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(500, 500);
+            this.dataGridView.Size = new System.Drawing.Size(500, 550);
             this.dataGridView.TabIndex = 0;
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(505, 1);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(25, 500);
-            this.vScrollBar1.TabIndex = 1;
-            // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.Location = new System.Drawing.Point(2, 504);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(500, 25);
-            this.hScrollBar1.TabIndex = 2;
             // 
             // opnFileBtn
             // 
-            this.opnFileBtn.Location = new System.Drawing.Point(571, 145);
+            this.opnFileBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.opnFileBtn.Location = new System.Drawing.Point(553, 150);
             this.opnFileBtn.Name = "opnFileBtn";
             this.opnFileBtn.Size = new System.Drawing.Size(200, 50);
             this.opnFileBtn.TabIndex = 3;
@@ -71,7 +60,8 @@
             // 
             // savFileBtn
             // 
-            this.savFileBtn.Location = new System.Drawing.Point(571, 289);
+            this.savFileBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.savFileBtn.Location = new System.Drawing.Point(553, 294);
             this.savFileBtn.Name = "savFileBtn";
             this.savFileBtn.Size = new System.Drawing.Size(200, 50);
             this.savFileBtn.TabIndex = 4;
@@ -83,11 +73,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 542);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.savFileBtn);
             this.Controls.Add(this.opnFileBtn);
-            this.Controls.Add(this.hScrollBar1);
-            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.dataGridView);
             this.Name = "mainWind";
             this.Text = "ADCLabsGrid";
@@ -99,8 +87,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.Button opnFileBtn;
         private System.Windows.Forms.Button savFileBtn;
     }

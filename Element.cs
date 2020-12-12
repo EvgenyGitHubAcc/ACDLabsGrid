@@ -19,6 +19,9 @@ namespace ACDGridSharp
         private string elemStr;
         private dynamic elem;
         private TypeEnum type;
+        public dynamic Elem { get => elem; }
+        public string ElemStr { get => elemStr; }
+        public TypeEnum Type { get => type; }
         public Element(string str)
         {
             elemStr = str;
@@ -181,8 +184,24 @@ namespace ACDGridSharp
                 }
             }
         }
-        public dynamic Elem { get => elem; }
-        public string ElemStr { get => elemStr; }
-        public TypeEnum Type { get => type; }
+        public static bool compareByTypeLess(Element objLeft, Element objRight)
+        {
+            if (objLeft.Type == TypeEnum.String)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static explicit operator string(Element el)
+        {
+            return el.elemStr;
+        }
+        public static string ConvertToString(Element el)
+        {
+            return el.ElemStr;
+        }
     }
 }

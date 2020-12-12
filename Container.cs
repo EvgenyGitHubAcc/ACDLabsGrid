@@ -10,16 +10,16 @@ namespace ACDGridSharp
     class Container
     {
         private List<FileLine> fileLineList = new List<FileLine>();
-        private uint linesCount = 0;
+        public List<FileLine> FileLineList { get => fileLineList; }
         public void loadFile(string filepath)
         {
+            this.fileLineList.Clear();
             System.IO.StreamReader file = new System.IO.StreamReader(filepath);
             string line;
             while ((line = file.ReadLine()) != null)
             {
                 FileLine fileLine = new FileLine(line);
                 this.fileLineList.Add(fileLine);
-                ++this.linesCount;
             }
         }
         public void saveFile(string filepath)
@@ -34,7 +34,19 @@ namespace ACDGridSharp
         }
         public void sortLines()
         {
-            fileLineList.Sort(new FileLineComparer());
+            fileLineList.Sort(new FileLineByValuesComparer());
+        }
+        public int getColCount()
+        {
+            int count = 0;
+            foreach (FileLine el in fileLineList)
+            {
+                if(count < el.ElemList.Count)
+                {
+                    count = el.ElemList.Count;
+                }
+            }
+            return count;
         }
     }
 }
